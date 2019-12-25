@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form va table</title>
+</head>
+<body>
+    <style> table {
+        border:1px solid black;
+    }
+
+    </style>
+
+    <h1>Thêm sinh viên</h1>
+    <form name="student_form" action="../Bang%20cv.html" method="get">
+        <table  border="1" width="100%" textalign="right">
+        <tr>
+            <td> Họ tên: </td>
+            <td> <input type="text" name="fullname" value="Nguyễn Văn An"></td>
+        </tr>
+        <tr>
+            <th>Giới tính:
+            </th>
+            <th> <input type="radio" name="sex" > Nam
+                <input type="radio" name="sex" > Nữ
+                <input type="radio" name="sex" >Bede
+            </th>
+        </tr>
+        <tr>
+            <td>Ngay sinh</td>
+            <td><input type="date" name="bod" value=""></td>
+         </tr>
+        <tr>
+            <td>Que quan</td>
+            <td><select>
+                <option>
+                    HaNoi
+                </option>
+                <option>
+                    HoChiMinh
+                </option>
+            </select></td>
+        </tr>
+        <tr>
+            <td>username</td>
+            <td><input type="text" name="username" value=""> </td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td><input type="password" name="password" value="" </td>
+        </tr>
+        <tr>
+            <td>ID</td>
+            <td><input type="hidden" name="id" value=""></td>
+        </tr>
+        <tr>
+            <td>Mo ta</td>
+            <td><input type="textarea" cols="10" row="1"  </td>
+        </tr>
+        <tr >
+            <td colspan="2" align="center"><input type="submit" value="Xac nhan">
+                <input type="reset" value="Lam lai"></td>
+                </tr>
+
+
+        </table>
+
+
+
+
+    </form>
+</body>
+</html>
