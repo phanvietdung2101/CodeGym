@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+<header>
+    <h2>Market Research Survey</h2>
+    <p>Please take a few moments to complete this satisfaction survey.<p>
+    <hr>
+</header>
+<form action="FormLaySurveyKhachHang.html" method="post">
+    <b>What is your age range?</b><br>
+    <select>
+        <option value="">18-24</option>
+        <option value="">25-34</option>
+        <option value="">35-50</option>
+        <option value="">50+</option>
+    </select><br>
+    <b>What is your yearly income range?</b><br>
+    <select>
+        <option value="">$0-$25000</option>
+        <option value="">$25001-$50000</option>
+        <option value="">$50001-100000</option>
+        <option value="">$100000+</option>
+    </select><br>
+    <b>Gender Identity</b><br>
+    <input type="checkbox" name="gender" value="male">Male<br>
+    <input type="checkbox" name="gender" value="female">Female<br>
+    <input type="checkbox" name="gender" value="nonbinary">Nonbinary<br>
+    <input type="checkbox" name="gender" value="other">Other&nbsp<input type="text" name="gender" value=""><br>
+    <b>Which of the following products have your purchased in the last 2 months. Please check all that apply.</b><br>
+    <input type="checkbox" name="product" value="1">Product 1<br>
+    <input type="checkbox" name="product" value="2">Product 2<br>
+    <input type="checkbox" name="product" value="3">Product 3<br>
+    How often would you use our new product?<br>
+    <input type="checkbox" name="howoften" value="daily">Daily<br>
+    <input type="checkbox" name="howoften" value="weekly">Weekly<br>
+    <input type="checkbox" name="howoften" value="monthly">Monthly<br>
+    <b>What would you pay for the new product?</b><br>
+    <table>
+        <tr>
+            <td>$</td>
+            <td><input type="text" name="dollars" value=""> </td>
+            <td>.</td>
+            <td><input type="text" name="cents" value=""> </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Dollars</td>
+            <td></td>
+            <td>Cents</td>
+        </tr>
+    </table>
+    <b>What features would you like to see in the new product.</b><br>
+    <input type="textarea" rows="5" cols="20"><br>
+    Please rate your level of agreement with the following statements.<br>
+    <table border="1" style="width: 100%">
+        <tr>
+            <th></th>
+            <th>Strongly Disagree</th>
+            <th>Disargee</th>
+            <th>Agree</th>
+            <th>Strongly Agree</th>
+        </tr>
+        <tr>
+            <td><b>Our products are priced fairly.</b></td>
+            <td align="center"><input type="checkbox" name="price" value="1"><br>1</td>
+            <td align="center"><input type="checkbox" name="price" value="2"><br>2</td>
+            <td align="center"><input type="checkbox" name="price" value="3"><br>3</td>
+            <td align="center"><input type="checkbox" name="price" value="4"><br>4</td>
+        </tr>
+        <tr>
+            <td><b>Our products are high quality.</b></td>
+            <td align="center"><input type="checkbox" name="quality" value="1"><br>1</td>
+            <td align="center"><input type="checkbox" name="quality" value="2"><br>2</td>
+            <td align="center"><input type="checkbox" name="quality" value="3"><br>3</td>
+            <td align="center"><input type="checkbox" name="quality" value="4"><br>4</td>
+        </tr>
+        <tr>
+            <td><b>You would recommend our product to a friend or coworker.</b></td>
+            <td align="center"><input type="checkbox" name="recommend" value="1"><br>1</td>
+            <td align="center"><input type="checkbox" name="recommend" value="2"><br>2</td>
+            <td align="center"><input type="checkbox" name="recommend" value="3"><br>3</td>
+            <td align="center"><input type="checkbox" name="recommend" value="4"><br>4</td>
+        </tr>
+    </table>
+
+
+
+</form>
+
+</body>
+</html>
