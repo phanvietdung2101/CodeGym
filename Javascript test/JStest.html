@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <script>
+        function thongBao(){
+            alert("Đây là thông báo đầu tiên");
+        }
+        function tinhTong(){
+            let x,y,z;
+            x = prompt("Nhập số thứ nhất:");
+            x = parseFloat(x);
+            y = prompt("Nhập số thứ hai:");
+            y = parseFloat(y);
+
+            if(confirm("Ban muon tinh tong")==true){
+                z = x + y ;
+                alert("Tổng là: " + z );
+            }
+        }
+    </script>
 </head>
 <body>
-$END$
+    <input type="button" value="Thông báo" onclick="thongBao()">
+    <input type="button" value="Tính tổng" onclick="tinhTong()">
 </body>
 </html>
