@@ -1,0 +1,28 @@
+table {
+   background-color: #d5feff;
+}
+div {
+    width: 500px;
+    padding: 30px;
+    background: white;
+}
+table {
+    width: 100%;
+}
+h2 {
+    background: red;
+    text-align: center;
+    height: 100%;
+    margin: 0;
+    color: white;
+}
+
+.dontrai{
+    padding-right: 5px;
+    text-align: right;
+    color: blue;
+}
+#bangnho{
+    color: orange;
+    width: -webkit-fill-available;
+}
