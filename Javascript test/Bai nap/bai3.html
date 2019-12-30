@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bien, kieu du lieu va toan tu</title>
+</head>
+<body>
+<!-- Bai tap 1 -->
+<form action="bai3.html" method="get">
+Diem vat ly :
+<input type="number" name="addds" id="vatly" value="">
+<input type="button" value="submit" onclick="getDiem()">
+</form>
+<script>
+    let a;
+    function getDiem(){
+        a = document.getElementById("vatly").value;
+        console.log("Vat ly la" + a);
+    }
+
+</script>
+
+</body>
+</html>

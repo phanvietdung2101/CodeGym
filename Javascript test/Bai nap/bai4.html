@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bien, kieu du lieu, toan tu</title>
+</head>
+<body>
+<input type="button" value="Tính điểm trung bình" onclick="diemTrungbinh()">
+<input type="button" value="Đổi nhiệt độ" onclick="doiNhietdo()">
+<input type="button" value="Tính diện tích hình tròn" onclick="dientichHinhtron()">
+<input type="button" value="Tính chu vi hình tròn" onclick="chuviHinhtron()">
+<script>
+    function diemTrungbinh() {
+        let vatly, hoahoc, sinhhoc, trungbinh;
+        vatly = prompt("Nhap diem vat ly: ");
+        vatly = parseFloat(vatly);
+        hoahoc = prompt("Nhap diem hoa hoc: ");
+        hoahoc = parseFloat(hoahoc);
+        sinhhoc = prompt("Nhap diem sinh hoc: ");
+        sinhhoc = parseFloat(sinhhoc);
+        trungbinh = (vatly + hoahoc + sinhhoc) / 3 ;
+        alert("Diem trung binh 3 mon hoc la: " + trungbinh );
+    }
+    
+    function doiNhietdo() {
+        let c;
+        c = prompt("Nhap nhiet do Celsius: ");
+        c = parseFloat(c);
+        alert("Doi sang nhiet do Fahrenheit: " + (c / 5 * 9 + 32));
+    }
+    
+    function dientichHinhtron() {
+        let r = prompt("Nhap ban kinh hinh tron: ");
+        r = parseFloat(r);
+        let s = Math.pow(r,2) * Math.PI;
+        alert("Dien tich hinh tron la: " + s);
+    }
+
+    function chuviHinhtron() {
+        let r = prompt("Nhap ban kinh hinh tron: ");
+        r = parseFloat(r);
+        let c = 2 * r * Math.PI;
+        alert("Chu vi hinh tron la: " + c);
+
+    }
+    
+</script>
+</body>
+</html>
