@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kiểm tra năm nhuận</title>
+</head>
+<body>
+<script>
+    let year = parseInt(prompt("Nhập năm cần kiểm tra:"));
+    let chiaHetCho4 = year % 4 == 0;
+    if (chiaHetCho4) {
+        let chiaHetCho100 = year % 100 == 0;
+        if (chiaHetCho100) {
+            let chiaHetCho400 = year % 400 == 0;
+            if (chiaHetCho400) {
+                alert(year + " la nam nhuan");
+            } else {
+                alert(year + " khong phai la nam nhuan");
+            }
+        } else {
+            alert(year + "la nam nhuan")
+        }
+    } else {
+        alert(year + " khong phai la nam nhuan");
+    }
+</script>
+</body>
+</html>
