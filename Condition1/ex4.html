@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="bai1" onclick="bai1()">
+<input type="button" value="bai2" onclick="bai2()">
+<input type="button" value="bai3" onclick="bai3()">
+<script>
+    function bai1() {
+//Bài 1
+        switch (browser) {
+            case 'Edge' :
+                alert("You've got the Edge!");
+                break;
+            case 'Chrome' :
+            case 'Firefox' :
+            case 'Safari' :
+            case 'Opera' :
+                alert("Okay we support these browsers too");
+                break;
+            default:
+                alert("We hope that this page look ok");
+                break;
+        }
+    }
+    function bai2() {
+        //Bài 2
+        let a = prompt('a?');
+        a = parseFloat(a);
+        switch(a) {
+            case 0:
+                alert(0);
+                break;
+            case 1:
+                alert(1);
+                break;
+            case 2:
+            case 3:
+                alert('2,3');
+                break;
+        }
+    }
+    function bai3() {
+        // Bài 3
+        let value = prompt('Type a number', 0);
+        value = parseFloat(value) ;
+        let test = Math.abs(value) / value ;
+        switch(test) {
+            case 0:
+                alert(0);
+                break;
+            case 1:
+                alert(1);
+                break;
+            case -1:
+                alert(-1);
+                break;
+        }
+    }
+
+</script>
+
+</body>
+</html>
