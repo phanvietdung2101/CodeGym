@@ -11,34 +11,30 @@
         <input type="number" id="value_x" value="">&nbsp;
         <input type="number" id="value_y" value="">
     </form><br>
-    <input type="button" class="dau" value="addition(+)" onclick="caculator()">
-    <input type="button" class="dau" value="subtraction(-)" onclick="caculator()">
-    <input type="button" class="dau" value="multiplication(x)" onclick="caculator()">
-    <input type="button" class="dau" value="division(/)" onclick="caculator()"><br>
+    <input type="button" class="dau" value="addition(+)" onclick="caculator(1)">
+    <input type="button" class="dau" value="subtraction(-)" onclick="caculator(2)">
+    <input type="button" class="dau" value="multiplication(x)" onclick="caculator(3)">
+    <input type="button" class="dau" value="division(/)" onclick="caculator(4)"><br>
     <p id="output"></p>
 </div>
 <script>
-    function caculator() {
-        let x,y,z,oper,oper2;
-        oper = document.getElementsByClassName("dau")[0].value;
-        oper2 = document.getElementsByClassName("dau")[1].value;
-        console.log(oper2);
-        console.log(oper);
+    function caculator(a) {
+        let x,y,z;
         z = parseFloat(z);
         x = document.getElementById("value_x").value;
         x = parseFloat(x);
         y = document.getElementById("value_y").value;
         y = parseFloat(y);
-        if(oper == "addition(+)"){
+        if(a == 1){
             z = x + y
         }
-        if(oper == "subtraction(-)"){
+        if(a == 2){
             z = x - y
         }
-        if(oper == "multiplication(x)"){
+        if(a == 3){
             z = x * y
         }
-        if(oper == "division(/)"){
+        if(a == 4){
             z = x / y
         }
         document.getElementById("output").innerHTML = z;
