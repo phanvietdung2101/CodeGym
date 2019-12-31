@@ -11,6 +11,7 @@
 <script>
     function bai1() {
 //Bài 1
+        browser = prompt('Enter your type of browser :');
         switch (browser) {
             case 'Edge' :
                 alert("You've got the Edge!");
@@ -28,7 +29,7 @@
     }
     function bai2() {
         //Bài 2
-        let a = prompt('a?');
+        let a = prompt('a?','');
         a = parseFloat(a);
         switch(a) {
             case 0:
@@ -46,8 +47,7 @@
     function bai3() {
         // Bài 3
         let value = prompt('Type a number', 0);
-        value = parseFloat(value) ;
-        let test = Math.abs(value) / value ;
+        let test = ((value > 0) ? 1 : (value < 0) ? -1 : 0 );
         switch(test) {
             case 0:
                 alert(0);
