@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="docReady()">
+<img id="nobita" src="http://doraemon.karpetkarakter.co/wp-content/uploads/2017/03/nobita-nobi.jpg" style=' left:0 ; top:0; width:10%; position: absolute'>
+<script>
+    // Hàm di chuyển element khi nhấn phím
+    function upArrowPressed() {
+        element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) - 5 + "px";
+    }
+    function downArrowPressed() {
+        element = document.getElementById("nobita");
+        element.style.top = parseInt(element.style.top) + 5 + "px";
+    }
+    function rightArrowPressed() {
+        element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) + 5 + "px";
+    }
+    function leftArrowPressed() {
+        element = document.getElementById("nobita");
+        element.style.left = parseInt(element.style.left) - 5 + "px";
+    }
+    function moveSelection(event) {  // Hàm nhận các phím theo keycode khi nhấn
+        switch (event.keyCode) {
+            case 37:
+                leftArrowPressed();
+                break;
+            case 39:
+                rightArrowPressed();
+                break;
+            case 38:
+                upArrowPressed();
+                break;
+            case 40:
+                downArrowPressed();
+                break;
+        }
+    }
+    function docReady() {
+        window.addEventListener("keydown", moveSelection);
+    }
+
+</script>
+
+</body>
+</html>
