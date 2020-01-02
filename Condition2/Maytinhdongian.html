@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Máy tính v1.0</title>
+    <style>
+        table {
+            width: 200px;
+            height: 200px;
+            border-width: thick;
+            border-style: groove;
+        }
+        th {
+            width: 30px;
+            height: 30px;
+            border: none;
+        }
+        td {
+            text-align: center;
+            border: none;
+        }
+        #result{
+            text-align: right;
+        }
+        input[type=text] {
+            color: mediumblue;
+        }
+        input[type=button] {
+            color: mediumblue;
+        }
+    </style>
+</head>
+<body >
+<div id="calculator-box">
+<form name="calculator">
+    <table border="1">
+        <tr>
+            <td colspan="4"><input type="text" name="result" id="result"></td>
+        </tr>
+        <tr>
+            <th><input type="button" value="1" onclick="calculator.result.value += '1'"></th>
+            <th><input type="button" value="2" onclick="calculator.result.value += '2'""></th>
+            <th><input type="button" value="3" onclick="calculator.result.value += '3'""></th>
+            <th><input type="button" value="+" onclick="calculator.result.value += '+'""></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="4" onclick="calculator.result.value += '4'"></th>
+            <th><input type="button" value="5" onclick="calculator.result.value += '5'""></th>
+            <th><input type="button" value="6" onclick="calculator.result.value += '6'""></th>
+            <th><input type="button" value="-" onclick="calculator.result.value += '-'""></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="7" onclick="calculator.result.value += '7'"></th>
+            <th><input type="button" value="8" onclick="calculator.result.value += '8'""></th>
+            <th><input type="button" value="9" onclick="calculator.result.value += '9'""></th>
+            <th><input type="button" value="x" onclick="calculator.result.value += '*'""></th>
+        </tr>
+        <tr>
+            <th><input type="button" value="C" onclick="calculator.result.value = ''"></th>
+            <th><input type="button" value="0" onclick="calculator.result.value += '0'""></th>
+            <th><input type="button" value="=" onclick="calculator.result.value = eval(calculator.result.value)""></th>
+            <th><input type="button" value="/" onclick="calculator.result.value += '/'""></th>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>
