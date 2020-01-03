@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sinh bang cuu chuong</title>
+</head>
+<body>
+<script>
+    let i,j,text;
+    i = 1;
+    j = 2;
+    text = "<table border='1' width='100%'>";
+    while (i<10) {
+        text = text + "<tr>";
+        while (j < 10) {
+            text = text + "<td>" + j + "x" + i + "=" + (j*i) + "</td>";
+            j++;
+        }
+        i++;
+        j = 2;
+        text = text + "</tr>";
+    }
+    text = text + "</table>";
+    document.write(text);
+</script>
+
+</body>
+</html>
