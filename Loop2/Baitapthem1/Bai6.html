@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /* Giả sử tính hoa hồng doanh số bán hàng theo hình thức bậc thang
+    Từ 0 đến 2.000.000 => 3%
+    Từ 2.000.000 đến 5.000.000 => 5%
+    Trên 5.000.000 => 10% */
+    let total = prompt("Nhập doanh số bán hàng cả tháng (đơn vị nghìn VNĐ)");
+    total = parseFloat(total);
+    let commission ;
+    if(2000 > total ) {
+        commission = total * 3 / 100
+    } else if(2000 < total < 5000) {
+        commission = (2000 * 3 / 100) + (total - 2000) * 5 / 100
+    } else if(5000 < total) {
+        commission = (2000 * 3 / 100) + (3000 * 5 / 100) + (total - 5000) * 10 / 100
+    }
+    alert ("Số tiền hoa hồng là: " + commission + "000 VNĐ");
+</script>
+</body>
+</html>

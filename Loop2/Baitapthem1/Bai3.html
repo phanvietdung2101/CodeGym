@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = prompt("Nhap mot so nguyen bat ki:");
+    number = parseFloat(number);
+    if(Number.isInteger(number)) {
+        if(number > 0) {
+            alert(number + " lon hon 0")
+        } else if(number < 0) {
+            alert(number + " nho hon 0")
+        } else alert(number + " bang 0 ")
+    } else {
+        alert("day khong phai la so nguyen")
+    }
+</script>
+</body>
+</html>

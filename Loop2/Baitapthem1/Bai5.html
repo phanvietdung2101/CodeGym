@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let kiemtraGiuaKy,kiemtraCuoiKy,sum,number;
+    sum = 0;
+    kiemtraGiuaKy = prompt("Nhập điểm kiểm tra Giữa kỳ: ");
+    kiemtraCuoiKy = prompt("Nhập điểm kiểm tra Cuối kỳ: ");
+    kiemtraGiuaKy = parseFloat(kiemtraGiuaKy);
+    kiemtraCuoiKy = parseFloat(kiemtraCuoiKy);
+    sum = parseFloat(sum);
+    number = prompt("Nhập số lượng bài kiểm tra thường muốn nhập:");
+    let kiemtra = new Array();
+    for(i = 0;i < number;i++) {
+        kiemtra[i] = prompt("Nhập bài kiểm tra số " + (i + 1));
+        sum += parseFloat(kiemtra[i]);
+    }
+    let avg = ( sum + kiemtraCuoiKy * 3 + kiemtraGiuaKy * 2 ) / (kiemtra.length + 5);
+    if (avg >= 8.5) {
+        alert("Bạn xếp hạng giỏi");
+    } else  if(8.5 > avg >= 7) {
+        alert("Bạn xếp hạng khá");
+    } else if(7 > avg >=5.5) {
+        alert("Bạn xếp hạng trung bình");
+    } else if(5.5 > avg >= 4) {
+        alert("Bạn xếp hạng trung bình yếu");
+    } else if(4 > avg) {
+        alert("Bạn xếp hạng yếu")
+    }
+
+
+</script>
+
+</body>
+</html>
