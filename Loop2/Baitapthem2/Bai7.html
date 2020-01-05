@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a,b,c,x,x1,x2,delta;
+    a = prompt("Nhập giá trị a trong biểu thức ax^2 + bx + c : ");
+    b = prompt("Nhập giá trị b trong biểu thức ax^2 + bx + c : ");
+    c = prompt("Nhập giá trị c trong biểu thức ax^2 + bx + c : ");
+    delta = (b * b) - (4 * a * c) ;
+    if(delta < 0) {
+        alert("Phương trình vô nghiệm");
+    } else if(delta == 0) {
+        x = - (b / 2) * a;
+        alert("Phương trình có 1 nghiệm: " + x);
+    } else if(delta > 0) {
+        x1 = ((-b + Math.sqrt(delta)) / 2 * a);
+        x2 = ((-b - Math.sqrt(delta)) / 2 * a);
+        alert("Phương trình có 2 nghiệm phân biệt là: " + x1 +" và "+ x2);
+    }
+</script>
+</body>
+</html>
