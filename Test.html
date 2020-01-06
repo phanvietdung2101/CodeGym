@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function giaiPt() {
+            let a, b;
+
+            a = prompt("Nhap a = ");
+            a = Number.parseFloat(a);
+
+            b = prompt("Nhap b = ");
+            b = Number.parseFloat(b);
+
+            if(a == 0)
+                if(b == 0)
+                    alert("Phuong trinh vo so nghiem");
+                else
+                    alert("Phuong trinh vo nghiem");
+            else
+                alert("Phuong trinh co nghiem x = " + -b/a);
+
+        }
+        function docSo1(number) {
+            let str = "";
+            switch (number) {
+                case 0: str = "Khong";
+                    break;
+                case 1: str = "Mot";
+                    break;
+                case 2: str = "Hai";
+                    break;
+                case 3: str = "Ba";
+                    break;
+                case 4: str = "Bon";
+                    break;
+                case 5: str = "Nam";
+                    break;
+                case 6: str = "Sau";
+                    break;
+                case 7: str = "Bay";
+                    break;
+                case 8: str = "Tam";
+                    break;
+                case 9: str = "Chin";
+                    break;
+                default: str = "Khong biet";
+            }
+            return str;
+        }
+        function docSo3(number) {
+            let str = "Khong biet";
+            if(number >= 100 && number < 1000) {
+                let hangTram, hangChuc, hangDonVi;
+
+                hangDonVi = number % 10;
+                hangChuc = (number / 10) % 10;
+                hangTram = number  / 100;
+
+                hangChuc = Number.parseInt(hangChuc);
+                hangTram = Number.parseInt(hangTram);
+
+                str = docSo1(hangTram) + " tram ";
+                str += docSo1(hangChuc) + " muoi ";
+                str += docSo1(hangDonVi);
+            }
+            return str;
+        }
+
+        function docSo() {
+            let number;
+            number = prompt("Nhap so:");
+            number = Number.parseInt(number);
+
+            alert(docSo3(number));
+        }
+    </script>
+</head>
+<body>
+<button onclick="giaiPt()">Giai phuong trinh</button>
+<button onclick="docSo()">Doc so</button>
+</body>
+</html>

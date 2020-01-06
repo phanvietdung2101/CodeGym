@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function nhapHinhCn() {
+            let a,b;
+
+            a = prompt("Nhap chieu ngang: ");
+            a = parseInt(a);
+            b = prompt("Nhap chieu doc: ");
+            b = parseInt(b);
+
+            if(a <= 0 || b <= 0) {
+                alert("Gia tri nhap vao phai lon hon 0")
+            } else {
+                inHinhCn(a,b)
+            }
+        }
+
+        function inHinhCn(x,y) {
+            document.write("<pre>");
+
+            for (i = 1; i <= x; i++) {
+                document.write("*");
+            }
+            document.write("<br>");
+
+            for (i = 1; i <= (y - 2); i++) {
+                document.write("*");
+
+                for (j = 1; j <= (x - 2); j++) {
+                    document.write(" ");
+                }
+
+                document.write("*");
+                document.write("<br>")
+            }
+
+            for (i = 1; i <= x; i++) {
+                document.write("*");
+            }
+
+            document.write("</pre>");
+
+        }
+    </script>
+
+</head>
+<body>
+<button onclick="nhapHinhCn()">Hình chữ nhật</button>
+</body>
+</html>

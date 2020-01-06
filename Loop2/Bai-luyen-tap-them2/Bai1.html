@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let n = prompt("Nhập số nguyên dương n trong phép tính giai thừa n!");
+    let sum = 1 ; // sum = n!
+    if (n != parseInt(n) || n <= 0 ) {
+        alert("n không phải là 1 số nguyên dương")
+    } else {
+        let i = 1;
+        while (i < n) {
+            sum *= i;
+            i++;
+        }
+        alert("Giá trị của n! là: "+ sum);
+    }
+
+</script>
+</body>
+</html>

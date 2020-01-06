@@ -6,9 +6,11 @@
 </head>
 <body>
 <script>
-    let tax;
-    let total = prompt("Nhập số thu nhập tính thuế theo đơn vị triệu đồng: ");
+    let tax,total;
+
+    total = prompt("Nhập số thu nhập tính thuế theo đơn vị triệu đồng: ");
     total = parseInt(total);
+
     if(total <= 5) {
         tax = total * 5 / 100
     } else if(total <= 10) {
@@ -24,6 +26,7 @@
     } else if(total > 80) {
         tax = (total * 35 / 100) - 9.85
     }
+
     alert("Thuế thu nhập cá nhân là: "+ tax);
 </script>
 </body>

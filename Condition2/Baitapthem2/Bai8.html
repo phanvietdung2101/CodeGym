@@ -7,16 +7,19 @@
 <body>
 <script>
     let number;
+
     number = prompt("Nhập vào 1 số");
     number = parseFloat(number);
+
     if(Number.isInteger(number)) {
-        if(120 > number > 0) {
+        if(120 > number && number > 0) {
             alert(number + " là tuổi của một người");
         }
         else {
             alert(number + " không phải là tuổi của một người");
         }
-    } else alert(number + " không phải là tuổi của một người");
+    } else
+        alert(number + " không phải là tuổi của một người");
 </script>
 </body>
 </html>

@@ -8,12 +8,14 @@
 <input type="button" value="Chơi" id="chơi" onclick="play()">
 <script>
     function play() {
-        let min,max,random;
+        let min,max,random,number;
+
         min = parseInt(prompt("Nhập giá trị nhỏ nhất của khoảng bạn muốn đoán: "));
         max = parseInt(prompt("Nhập giá trị lớn nhất của khoảng bạn muốn đoán: "));
         random = Math.floor(Math.random() * (max - min) + 1) + min;
+
         console.log(random);
-        let number;
+
         for(i=0;i<3;i++) {
             number = parseInt(prompt("Nhập giá trị bạn đoán"));
             if(number == random) {
@@ -25,6 +27,7 @@
                 alert("Bạn đã đoán sai và số bạn đoán lớn hơn giá trị của số cần tìm")
             }
         }
+
         alert("Ấn vào button để chơi lại")
 
 

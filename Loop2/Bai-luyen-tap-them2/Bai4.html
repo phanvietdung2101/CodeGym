@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body style="line-height: 7px">
+    <button onclick="sizeHeart()">In Hình Trái Tim</button>
+<script>
+    function sizeHeart() {
+        let size = prompt("Nhập size hình trái tim muốn in");
+        size = parseFloat(size);
+
+        while (size <= 0 ) {
+            size = parseFloat(prompt("Nhập lại size hình trái tim lớn hơn 0"));
+            if (size > 0) break;
+        }
+
+        printHeart(size);
+
+    }
+
+    function nTimeSpace(n) {
+        for(i = 0; i < n; i++) {
+            document.write(" ")
+        }
+    }
+    function nTimeStar(n) {
+        for(i = 0; i < n; i++) {
+            document.write("*")
+        }
+    }
+    function printHeart(x) {
+        x = parseInt(x);
+        document.write("<pre style='line-height: 7px'>");
+
+        // Hang 1
+        nTimeSpace(x+1);
+        nTimeStar(1);
+        nTimeStar(x);
+        nTimeStar(1);
+        nTimeSpace(2 * x + 2);
+        nTimeStar(1);
+        nTimeStar(x);
+        nTimeStar(1);
+        document.write("<br>")
+
+        for(j = 0; j <= x; j++){
+            nTimeSpace(x - j);
+            nTimeStar(1);
+            nTimeSpace(x + 2 + (2 * j));
+            nTimeStar(1);
+            nTimeSpace(2 * (x - j) );
+            nTimeStar(1);
+            nTimeSpace(x + 2 + 2 * j);
+            nTimeStar(1);
+            document.write("<br>")
+        }
+
+        for(j = 1; j <= (3 * x + 3); j++) {
+            nTimeSpace(j);
+            nTimeStar(1);
+            nTimeSpace(6 * x + 6 - 2 * j);
+            nTimeStar(1);
+            document.write("<br>");
+        }
+        document.write("</pre>")
+
+    }
+</script>
+</body>
+</html>

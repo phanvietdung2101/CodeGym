@@ -7,9 +7,12 @@
 <body>
 <script>
     let a = new Array();
+
     a[0] = 1;
     a[1] = 1;
+
     let num;
+
     for(i=2;i>0;i++) {
         a[i] = a[i-2] + a[i-1];
         num = a[i];

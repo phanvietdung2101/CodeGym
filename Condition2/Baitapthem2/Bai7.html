@@ -7,10 +7,13 @@
 <body>
 <script>
     let a,b,c,x,x1,x2,delta;
+
     a = prompt("Nhập giá trị a trong biểu thức ax^2 + bx + c : ");
     b = prompt("Nhập giá trị b trong biểu thức ax^2 + bx + c : ");
     c = prompt("Nhập giá trị c trong biểu thức ax^2 + bx + c : ");
+
     delta = (b * b) - (4 * a * c) ;
+
     if(delta < 0) {
         alert("Phương trình vô nghiệm");
     } else if(delta == 0) {

@@ -7,8 +7,10 @@
 <body>
 <script>
     let t = prompt("Nhập số điện năng tiêu thụ theo dơn vị kWh : ");
-    t = parseInt(t);
     let fee = 0;
+
+    t = parseInt(t);
+
     if(t > 0) {
         fee += t * 1678;
         if(t > 50) {
