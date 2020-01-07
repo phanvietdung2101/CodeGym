@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let input = window.prompt("Nhap chuoi: ");
+    let str = input.toString();
+    let result = [];
+
+    for(i=0;i<str.length;i++) {
+        if(str[i] != str.toLowerCase()[i]) {
+            result[i] = str.toLowerCase()[i]
+        } else {
+            result[i] = str.toUpperCase()[i]
+        }
+    }
+    document.write(result.join(""));
+
+</script>
+</body>
+</html>

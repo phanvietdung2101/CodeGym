@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TU dien</title>
+    <script>
+        function trans() {
+            let tiengAnh = ["hello", "goodbye", "morning", "afternoon", "evening", "glad", "sad", "mad", "love", "hate"];
+            let tiengViet = ["Xin chào", "Tạm biệt", "Sáng", "Chiều", "Tối", "Tự hào", "Buồn", "Tức giận", "Yêu", "Ghét"];
+
+            let inPut = document.getElementById("input").value;
+
+            for(i = 0; i < tiengAnh.length; i++) {
+                if(inPut == tiengAnh[i]) {
+                    document.getElementById("outPut").innerHTML = tiengViet[i];
+                    break;
+                } else {
+                    document.getElementById("outPut").innerHTML = "Không có kết quả";
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+    <input type="text" value="" name="input" id="input" >
+    <button onclick="trans()" >CLick</button>
+    <hr>
+    <p id="outPut"></p>
+</body>
+</html>

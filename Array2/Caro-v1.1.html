@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = new Array();
+    let data = "";
+    let player = "x";
+
+    for(i = 0; i < 10; i++){
+        a[i]=['.','.','.','.','.','.','.','.','.','.']
+    }
+    // In hình ra
+    window.onload = function print() {
+        for(i = 0; i < 10; i++){
+            data += a[i].join("&nbsp;&nbsp") + "<br>";
+        }
+        console.log(data);
+
+        document.getElementById("caro").innerHTML = data;
+    };
+
+
+
+    function playgame(){
+        let row,col;
+
+        if(player == "x"){
+            row = prompt("Nhap hang");
+            col = prompt("Nhap cot");
+
+            change(row,col,player);
+        }
+        if(player == "o"){
+            row = prompt("Nhap hang");
+            col = prompt("Nhap cot");
+
+            change(row,col,player);
+        }
+        check();
+
+
+        if(player == "x"){
+            player = "o"
+        } else {
+            player = "x"
+        }
+        console.log(a);
+
+
+
+    }
+
+    function change(row,col,player) {
+        a[row][col] = player;
+        data ="";
+
+        for (i = 0; i < 10; i++) {
+            data += a[i].join("&nbsp;&nbsp") + "<br>"
+        }
+        document.getElementById("caro").innerHTML = data;
+    }
+
+
+
+    function check() {
+        let flag = false;
+        for (i=0;i<10;i++){
+            for (j=0;j<8;j++){
+                if(a[i][j] == a[i][j+1] && a[i][j+1] == a[i][j+2] && a[i][j] != ".") {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        for(i=0;i<8;i++){
+            for(j=0;j<10;j++){
+                if (a[i][j] == a[i+1][j] && a[i+1][j] == a[i+2][j] && a[i][j] != ".") {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        for (i=0;i<8;i++){
+            for (j=0;j<8;j++) {
+                if (a[i][j] == a[i+1][j+1] && a[i][j] == a[i+2][j+2] && a[i][j] != ".") {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        for(i=2;i<10;i++){
+            for(j=2;j<10;j++){
+                if (a[i][j] == a[i-1][j-1] && a[i][j] == a[i-2][j-2] && a[i][j] != ".") {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        for(i=0;i<8;i++){
+            for (j=2;j<10;j++){
+                if (a[i][j] == a[i+1][j-1] && a[i][j] == a[i+2][j-2] && a[i][j] != ".") {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        for(i=2;i<10;i++){
+            for(j=0;j<8;j++){
+                if (a[i][j] == a[i-1][j+1] && a[i][j] == a[i-2][j+2] && a[i][j] != ".") {
+                    flag = true;
+                    break;
+                }
+            }
+        }
+        if(flag == true){
+            alert("player " + player + " win");
+        }
+    }
+
+
+</script>
+<button onclick="playgame()">ClickMeToPlay</button>
+<pre id="caro"></pre>
+</body>
+</html>
