@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = new Array();
+    let e = prompt("Nhap so phan tu trong mang muon nhap: ");
+
+    for(i=0;i<e;i++) {
+        a[i] = prompt("Nhap phan tu " + (i + 1));
+
+        if(a[i] == "-"){
+            a[i] = "_";
+        }
+    }
+
+    console.log(a);
+
+</script>
+
+</body>
+</html>

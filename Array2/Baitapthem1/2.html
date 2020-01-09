@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = [];
+
+    // Tạo giá trị random từ 0-30 cho mỗi phần tử
+    for(i=0;i<10;i++){
+        a[i] = Math.floor(Math.random() * 30) + 1;
+    }
+
+    // Sắp xếp array theo thứ tự từ bé đến lớn
+    a.sort(function (a,b) {
+        return a - b ;
+    });
+
+    // Sử dụng vòng lặp để kiểm tra 2 giá trị liên tiếp có = nhau hay không
+    let n = 0;
+    while (n < a.length) {                                      // Lặp
+        while (a[n] == a[n+1]) {
+            a[n+1] = Math.floor(Math.random() * 30) + 1;
+            a.sort(function (a,b) {
+                return a - b ;
+            });
+            n = 0;
+        }
+        n++;
+    }
+
+    alert("Giá trị lớn nhất là " + a[a.length - 1]);
+
+    console.log(a)
+
+</script>
+
+</body>
+</html>

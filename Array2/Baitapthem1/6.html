@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = new Array();
+
+    for(i=0;i<10;i++){
+        let temp = parseFloat(prompt("Nhập phần tử " + i + " của mảng: "));
+        while(temp != parseInt(temp)){
+            temp = parseFloat(prompt("Giá trị không phải là số nguyên. Nhập lại phần tử " + i + " của mảng:"));
+        }
+        a[i] = temp;
+    }
+
+    let V = parseFloat(prompt("Nhập V:"));
+    while(V != parseInt(V)){
+        V = parseFloat(prompt("Nhập lại V là số nguyên: "))
+    }
+
+    let flag = true;
+    for(i=0;i<10;i++){
+        if(a[i] == V){
+            flag = true;
+            break;
+        } else {
+            flag = false;
+        }
+    }
+
+    if(flag)
+        alert("V thuộc mảng");
+    else
+        alert("V không thuộc mảng");
+
+
+
+
+</script>
+
+</body>
+</html>

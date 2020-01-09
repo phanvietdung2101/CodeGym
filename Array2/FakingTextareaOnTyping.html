@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <script>
+        let count,text;
+        let a = "Tôi là ai, đây là đâu.";
+
+        count = 0;
+        text = "";
+
+        function fakeTyping() {
+            document.getElementById("result").value = "";
+
+            if(count < a.length ) {
+                for(i = 0; i <= count; i++) {
+                    text = text + a[i];
+                }
+                count++;
+            } else {
+                count = 0;
+            }
+
+            document.getElementById("result").value = text;
+            text = "";
+        }
+
+    </script>
+</head>
+<body>
+<form>
+<textarea id="result" onkeyup="fakeTyping()" ></textarea>
+</form>
+</body>
+</html>

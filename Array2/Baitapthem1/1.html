@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let array = [];
+
+    // Tạo giá trị random từ 0-30 cho mỗi phần tử
+    for(i=0;i<10;i++){
+        array[i] = Math.floor(Math.random() * 30) + 1;
+    }
+
+    // Kiểm tra giá trị mỗi phần tử có lớn hơn 10 hay không
+    let result = 0;
+    for(i=0;i<10;i++){
+        if(array[i] >= 10){
+            result++;
+        }
+    }
+    alert("Co " + result + " phan tu lon hon hoac bang 10.");
+
+    console.log(array);
+</script>
+</body>
+</html>

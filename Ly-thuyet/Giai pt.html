@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function giaiHePt() {
+            let a, b, c, d, f, e, D, Dx, Dy;
+
+            a = document.getElementById("a").value;
+            a = parseFloat(a);
+
+            b = document.getElementById("b").value;
+            b = parseFloat(b);
+
+            c = document.getElementById("c").value;
+            c = parseFloat(c);
+
+            d = document.getElementById("d").value;
+            d = parseFloat(d);
+
+            e = document.getElementById("e").value;
+            e = parseFloat(e);
+
+            f = document.getElementById("f").value;
+            f = parseFloat(f);
+
+            D = a * e - b * d;
+            Dx = c * e - b * f;
+            Dy = a * f - d * c;
+
+            if (D == 0)
+                if (Dx != 0 || Dy != 0)
+                    document.getElementById("result").innerHTML = "Phuong trinh vo nghiem";
+                else
+                    document.getElementById("result").innerHTML = "He phuong trinh vo so nghiem"
+            else {
+                document.getElementById("result").innerHTML = "x = " + Dx / D + "<br>y =  " + Dy / D;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<h3>Giải hệ pt</h3>
+<input type="text" id="a" value=""> x+ <input type="text" id="b" value=""> y = <input type="text" id="c" value=""><br>
+<input type="text" id="d" value=""> x+ <input type="text" id="e" value=""> y = <input type="text" id="f" value=""><br>
+<button onclick="giaiHePt()">Giai he phuong trinh</button>
+<div id="result"></div>
+
+
+
+</body>
+</html>
