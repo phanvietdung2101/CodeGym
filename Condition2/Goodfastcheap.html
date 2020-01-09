@@ -4,10 +4,153 @@
     <meta charset="UTF-8">
     <title>goodfastcheap</title>
     <style>
-        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
     </style>
+
+    <script>
+        let a,b,c;
+
+        a = 0;
+        b = 0;
+        c = 0;
+
+        function playgame(number) {
+            switch (number) {
+                case 1:
+                    a = changeValue(a);
+                    if(a+b+c == 3){
+                        switch (random()) {
+                            case 1:
+                                document.getElementById("fast").click();
+                                changeValue(b);
+                                break;
+                            case 2:
+                                document.getElementById("cheap").click();
+                                changeValue(c);
+                                break;
+                        }
+                    }
+                    break;
+                case 2:
+                    b = changeValue(b);
+                    if(a+b+c == 3){
+                        switch (random()) {
+                            case 1:
+                                document.getElementById("good").click();
+                                changeValue(a);
+                                break;
+                            case 2:
+                                document.getElementById("cheap").click();
+                                changeValue(c);
+                                break;
+                        }
+                    }
+                    break;
+                case 3:
+                    c = changeValue(c);
+                    if(a+b+c == 3){
+                        switch (random()) {
+                            case 1:
+                                document.getElementById("fast").click();
+                                changeValue(b);
+                                break;
+                            case 2:
+                                document.getElementById("good").click();
+                                changeValue(a);
+                                break;
+                        }
+                    }
+                    break;
+            }
+
+        }
+
+        function random() {
+                let random;
+                random = Math.floor(Math.random() * 2) + 1;
+                return random;
+            }
+
+        
+        function changeValue(value) {
+            if(value == 0){
+                return 1
+            } else {
+                return 0
+            }
+        }
+        
+    </script>
 </head>
 <body>
-<input type="checkbox" > Fast
+<label class="switch">
+    <input id="good" type="checkbox" onclick="playgame(1)">
+    <span class="slider round"></span>
+</label>  GOOD<br><br>
+<label class="switch">
+    <input id="fast" type="checkbox" onclick="playgame(2)">
+    <span class="slider round"></span>
+</label>  FAST<br><br>
+<label class="switch">
+    <input id="cheap"  type="checkbox" onclick="playgame(3)">
+    <span class="slider round"></span>
+</label>  CHEAP<br>
 </body>
 </html>
