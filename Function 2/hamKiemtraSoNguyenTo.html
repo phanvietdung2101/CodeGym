@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPrime(value) {
+        if(value < 2) {
+            return false;
+        } else {
+            for(i = 2; i <=  Math.sqrt(value); i++) {
+                if(value % i == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+
+    for(j = 2; j < 10000; j++) {
+        if(isPrime(j) == true) {
+            document.write(j + ",");
+        }
+    }
+</script>
+
+</body>
+</html>

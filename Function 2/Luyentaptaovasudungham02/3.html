@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function factorial(value) {
+        if(value < 1 || value != parseInt(value)) {
+            alert("Number must be a integer and greater than 0")
+        } else {
+            let result = 1;
+            for(i = 1; i <= value; i++){
+                result *= i;
+            }
+            return result;
+        }
+    }
+
+    let number = prompt("Enter a number: ");
+    number = parseFloat(number);
+
+    alert("Result: " + factorial(number));
+
+</script>
+</body>
+</html>

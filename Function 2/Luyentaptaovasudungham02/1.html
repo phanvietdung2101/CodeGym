@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function powNum(number) {
+        if(Number.isNaN(number) == true) {
+            alert("Your input isn't a number")
+        } else {
+            return Math.pow(number,2);
+        }
+    }
+
+    let number = prompt("Type a number to power");
+    number = parseFloat(number);
+
+    let result = powNum(number);
+    alert("Result " + result);
+</script>
+
+</body>
+</html>

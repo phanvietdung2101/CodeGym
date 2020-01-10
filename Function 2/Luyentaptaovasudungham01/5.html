@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let celebName = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+        let celebHoroscope = ['Ursa Minor', 'Tarurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major' , 'Leo'];
+
+        function getCelebHoroscope(name) {
+            let i = celebName.indexOf(name);
+            if(i == -1)
+                alert("Name is not found");
+            else
+                alert(celebHoroscope[i]);
+            }
+    </script>
+</head>
+<body>
+<script>
+    let name = prompt("Type name you want to find");
+    getCelebHoroscope(name);
+</script>
+
+</body>
+</html>
