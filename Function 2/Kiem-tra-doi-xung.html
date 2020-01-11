@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isPalindrome(string) {
+        let stringReverse = string.split("");
+        stringReverse.reverse();
+        stringReverse = stringReverse.join("");
+        if(string == stringReverse){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    let string = prompt("Enter a string: ");
+
+    alert(isPalindrome(string));
+</script>
+
+</body>
+</html>

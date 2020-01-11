@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            width: 800px;
+        }
+        button {
+            border-radius: 5px;
+            background: #50af50;
+            width: 50px;
+            height: 35px;
+            box-shadow: none;
+            position: relative;
+            color: white;
+        }
+        .add-box {
+            background-color: #f2f2f2;
+            width: 350px;
+            height: 50px;
+        }
+        .inside{
+            text-align: center;
+
+        }
+        input[type = text] {
+            width: 250px;
+            height: 25px;
+        }
+    </style>
+
+</head>
+<body>
+<h3>Add new product</h3>
+<div class="add-box">
+    <div class="inside">
+        <input type="text" id="newProduct" value="">
+        <button onclick="addProduct()">Add</button>
+    </div>
+</div>
+<br>
+<h3>Display All Product</h3>
+<div id="table"></div>
+
+<script>
+    let listProduct = ['Sony Xperia','Samsung Galaxy','Nokia 6','Apple Iphone 6S'];
+
+    function showProduct(array) {
+        let html = "<table>";
+        html += "<tr>"
+                    + "<th align='left' colspan='2'>Product Name</th>"
+                    + "<th align='right' style='color: #a52a2a'>" + listProduct.length + " products</th>" +
+                "</tr>" ;
+
+        for(i = 0; i < array.length; i++){
+            html += "<tr";
+            if(i % 2 != 0){
+                html += " style='background-color: #f2f2f2'"
+            }
+            html += ">";
+            html += "<td>" + array[i] + "</td>";
+            html += "<td>" + "<button onclick='editProduct(" + i + ")'>" + "Edit" + "</button>" + "</td>";
+            html += "<td>" + "<button onclick='deleteProduct(" + i + ")'>" + "Delete" + "</button>" + "</td>";
+            html += "</tr>"
+        }
+
+        html += "</table>";
+
+        document.getElementById("table").innerHTML = html;
+    }
+
+    function editProduct(index) {
+       let temp = prompt("Edit " + listProduct[index] + " to: ");
+
+       if(temp != undefined){
+           listProduct[index] = temp;
+       }
+
+       showProduct(listProduct);
+    }
+
+    function deleteProduct(index){
+        let flag = confirm("Are you sure!");
+
+        if(flag == true) {
+            listProduct.splice(index,1);
+        }
+
+        showProduct(listProduct);
+    }
+
+    function addProduct() {
+        let temp = document.getElementById("newProduct").value;
+
+        if(temp != "") {
+            listProduct.unshift(temp);
+        }
+
+        showProduct(listProduct);
+    }
+
+    window.onload = showProduct(listProduct);
+
+</script>
+</body>
+</html>
