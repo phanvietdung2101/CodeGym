@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<canvas id="myCanvas" width="1368px"  height="768" style="border: 1px solid #d3d3d3;">
+<canvas id="myCanvas" width="1920px"  height="1080px" style="border: 1px solid #d3d3d3;">
 </canvas>
 <script>
     function Circle(x, y , radius) {
@@ -26,21 +26,36 @@
         return "rgb(" + red + "," + green + "," + blue + ")";
     }
     
-    function creatCircle() {
-        let ctx = document.getElementById("myCanvas").getContext("2d");
-        let radius = Math.floor(Math.random() * 80);
+    function creatCircle(x,y) {
+        let canvas = document.getElementById("myCanvas");
+        const context = canvas.getContext('2d');
+        let radius = 50;
         let color = getRandomColor();
-        let x = Math.random() * window.innerWidth;
-        let y = Math.random() * window.innerHeight;
         let circle = new Circle(x,y,radius);
 
-        ctx.beginPath();
-        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
-        ctx.fillStyle = color;
-        ctx.fill();
+
+        context.beginPath();
+        context.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI);
+        context.fill();
+
     }
 
-    creatCircle();
+    function creatMultipleCircle(time) {
+        for (let i = 0; i < time; i++) {
+            creatCircle(i, i);
+        }
+    }
+    let a = 0;
+    let b = 0;
+
+    setInterval(function () {
+        document.getElementById("myCanvas").getContext('2d').clearRect(0,0,3000,3000);
+        creatCircle(a,b);
+        a++;
+        b++;
+    },10)
+
+
 
 </script>
 </body>
