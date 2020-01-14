@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dien-thoai</title>
+</head>
+<body>
+<script>
+    function Mobile() {
+        this.batteryPower = 100;
+        this.messageDraft = [];
+        this.messageInbox = [];
+        this.messageSent = [];
+        this.isOn = true;
+
+        this.checkPhoneStatus = function () {
+            if(this.isOn == true && this.batteryPower > 0){
+                return true;
+            } else {
+                return false;
+            }
+
+        };
+        this.turnMobile = function () {
+            this.isOn = !this.isOn;
+            // if(this.isOn == true){
+            //     this.isOn = false;
+            // } else {
+            //     this.isOn = true;
+            // }
+        };
+        this.chargingPower = function () {
+            this.batteryPower = 100;
+        };
+        this.textMessages = function () {
+            if(this.checkPhoneStatus()){
+                let text = prompt("Nhap text");
+                this.consumeBatteryPower();
+                if(confirm("Đồng ý nếu bạn muốn gửi")){
+                    let target = prompt("Nhập máy nhận");
+                    this.sendMessage(target,text);
+                } else {
+                    this.messageDraft.push(text);
+                }
+            }
+        };
+
+        this.takeMessage = function () {
+
+        };
+        this.sendMessage = function (target,textMessage) {
+            this.consumeBatteryPower();
+            target.messageInbox.push(textMessage);
+            this.messageSent.push(textMessage);
+        };
+
+        this.accessMessageInbox = function () {
+           if(this.checkPhoneStatus()){
+               this.consumeBatteryPower();
+               document.write(this.messageInbox.join("<br>"))
+           }
+        };
+        this.accessMessageSent = function () {
+            if(this.checkPhoneStatus()){
+                this.consumeBatteryPower();
+                document.write(this.messageInbox.join("<br>"))
+            }
+        };
+        this.consumeBatteryPower = function () {
+            --this.batteryPower;
+        }
+    }
+
+    let nokia = new Mobile();
+    let iphone = new Mobile();
+
+    // nokia.textMessages();
+    nokia.sendMessage(iphone, "Xin chao Iphone");
+
+</script>
+
+</body>
+</html>

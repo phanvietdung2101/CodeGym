@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temparature</title>
+</head>
+<body>
+<script>
+    function Temperature(temp) {
+        if(temp > -273) {
+            this.celcius = temp;
+        } else {
+            alert("Nhiet do phai lon hon -273")
+        }
+
+        this.transferToFahrenheit = function () {
+            return (9 / 5 * this.celcius + 32)
+        };
+
+        this.transferToKelvin = function () {
+            return (273.15 + this.celcius);
+        }
+    }
+
+    let temperature1 = new Temperature(-330);
+
+    alert(temperature1.celcius + " do C tuong duong " + temperature1.transferToFahrenheit() + " do F va " + temperature1.transferToKelvin() + " do K")
+
+</script>
+</body>
+</html>

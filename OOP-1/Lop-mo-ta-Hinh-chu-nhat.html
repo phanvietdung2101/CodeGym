@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<canvas id="myCanvas" height="500px" width="500px" style="border: 1px solid black " ></canvas>
+<p id="result"></p>
+<script>
+
+function Rectangle(width,height) {
+    this.width = parseInt(width);
+    this.height = parseInt(height);
+
+    this.changeSize = function (x,y) {
+        this.width = x;
+        this.height = y;
+    };
+
+    this.getArea = function () {
+        return width * height;
+    };
+
+    this.getPerimeter = function () {
+        return width * 2 + height * 2;
+    };
+    
+    this.showCanvas = function (x,y) {
+        let context = document.getElementById("myCanvas").getContext("2d");
+        context.beginPath();
+        context.rect(20, 20, 150, 100);
+        context.stroke();
+
+    };
+}
+
+let hcn1 = new Rectangle(60,50);
+hcn1.showCanvas(5,5);
+
+document.getElementById("result").innerHTML = "Dien tich hinh chu nhat la" + hcn1.getArea() + " va Chu vi la " + hcn1.getPerimeter();
+
+
+</script>
+
+</body>
+</html>
