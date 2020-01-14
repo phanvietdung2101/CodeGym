@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function arrayCreat(row,col) {
+        let array = new Array(row);
+
+        for(i = 0; i < row; i++){
+            array[i] = new Array(col);
+        }
+
+        return array;
+    }
+
+    function arrayRandomValue(array) {
+        for(i = 0;i < array.length; i++){
+            for(j = 0; j < array[i].length; j++){
+                array[i][j] = Math.floor( Math.random() * 100 )
+            }
+        }
+    }
+
+    function arrayShow(array){
+        let result ;
+
+        result = "<table border='1' width='100%'>";
+        for(i = 0; i < array.length; i++){
+            result += "<tr>";
+            for(j = 0; j < array[i].length; j++){
+                result += "<td>" + array[i][j] + "</td>";
+            }
+            result += "</tr>";
+        }
+        result += "</table>";
+
+        document.write(result)
+    }
+
+    function arrayMin(array){
+        let temp1 = 0;
+        let temp2 = 0;
+        let min = array[0][0];
+
+        for(let a = 0;a < array.length; a++){
+            for(let b = 0; b < array[a].length; b++){
+                if(array[a][b] < min){
+                    min = array[a][b];
+                    temp1 = a;
+                    temp2 = b;
+                }
+            }
+        }
+        return [min,temp1,temp2];
+    }
+
+    function arraySumByRow(array,rowId){
+        let sum = 0;
+
+        for(i = 0; i < array[rowId].length; i++){
+            sum += array[rowId][i];
+        }
+        return sum;
+    }
+
+    function arraySumByCol(array,colId){
+        let sum = 0;
+
+        for(i = 0; i < array.length; i++){
+            sum += array[i][colId];
+        }
+        return sum;
+    }
+
+
+
+
+
+
+    let arr = arrayCreat(5,5);
+
+    arrayRandomValue(arr);
+    arrayShow(arr);
+
+
+    let arr2 = new Array();
+    let temp;
+    for(let i = 0; i < 5; i++){
+        arr2[i] = new Array();
+        for(let j = 0; j < 5; j++){
+            temp = arrayMin(arr);
+            arr2[i][j] = temp[0];
+            arr[temp[1]][temp[2]] = 10000;
+
+        }
+    }
+
+
+
+    /*let newArr = arrayCreat(6,6);
+
+    for(i=0;i<5;i++){
+        for(j=0;j<5;j++){
+            newArr[i][j] = arr[i][j];
+        }
+    }
+
+    for (let i = 0; i <5; i++){
+        newArr[i][5] = arraySumByRow(arr,i);
+        newArr[5][i] = arraySumByCol(arr,i);
+    }
+*/
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mang nhieu chieu</title>
+    <script>
+        let arr = new Array(10,10);
+        let soDong,soCot;
+        let temp1,temp2;
+
+        function khoiTao(){
+            soDong = prompt("Nhap so dong:");
+            soDong = Number.parseInt(soDong);
+
+            soCot = prompt("Nhap so cot:");
+            soCot = Number.parseInt(soCot);
+
+            let i,j;
+            arr = new Array(soDong);
+            for(i=0;i<soDong;i++){
+                arr[i] = new Array(soCot);
+                for(j=0;j<soCot;j++){
+                    arr[i][j] = Math.random() * 100;
+                }
+            }
+        }
+
+        function hienMang(array,soDong,soCot){
+            let i,j;
+            document.writeln("<table border='1'>");
+            for(i=0;i<soDong;i++){
+                document.writeln("<tr>");
+                for(j=0;j<soCot;j++){
+                    document.writeln("<td>" + array[i][j] + "</td>");
+                }
+                document.writeln("</tr>");
+            }
+            document.writeln("</table>")
+
+        }
+
+        function tongHang(id){
+            let sum = 0;
+            for(let j = 0; j < soCot; j++){
+                sum += arr[id][j];
+            }
+            return sum;
+        }
+
+        function tongCot(id){
+            let sum = 0;
+            for(let j = 0; j < soDong; j++){
+                sum += arr[j][id];
+            }
+            return sum;
+        }
+
+        function timMin(){
+            let min = arr[0][0];
+            for(let i = 0;i< soDong; i++){
+                for(let j = 0; j < soCot; j++){
+                    if(arr[i][j] < min) {
+                        min = arr[i][j];
+                        temp1 = i;
+                        temp2 = j;
+                    }
+                }
+            }
+            return min;
+        }
+
+        function timMax() {
+            let max = arr[0][0];
+
+            for(let i = 0; i < soDong; i++){
+                for(let j = 0; j < soCot; j++){
+                    if(arr[i][j] > max)
+                        max = arr[i][j];
+                }
+            }
+            return max;
+
+        }
+
+        function sortRow(){
+            for (let i = 0; i < soDong; i++){
+                arr[i].sort(function (a,b) {
+                    return a - b;
+                });
+            }
+        }
+
+        function sortCol() {
+            arr.sort(function (a,b) {
+                return a[0] - b[0];
+            });
+        }
+
+        function sortLeftToRightAndUpToDown() {
+            let newArr = arr;
+            let temp ;
+            for(let k = 0; k < soDong; k++){
+                for(let l = 0; l < soCot; l++){
+                    temp = timMin();
+                    newArr[k][l] = temp;
+                    delete arr[temp1][temp2];
+                }
+            }
+        }
+
+     /*   function newArrWithSum(array,soDong,soCot){
+            let sumArr = array;
+
+            sumArr[soDong + 1] = new Array(soCot + 1);
+
+            for(let i = 0; i < soDong + 1; i++){
+                let sumRow = 0;
+                for(let j = 0; j < soCot + 1; j++){
+                    sumRow += sumArr[i][[j]];
+                    array[i][soCot] = sumRow;
+                }
+            }
+
+            return sumArr;
+        }*/
+
+
+        function main() {
+            khoiTao();
+            hienMang(arr,soDong,soCot);
+            //arr = newArrWithSum(arr,soDong,soCot);
+            hienMang(arr,soDong+1,soCot+1);
+
+            let arr1 = arr;
+            let temp ;
+
+            console.log(arr1);
+            
+
+            console.log(arr1);
+
+            document.writeln("<br>Tong hang 1 la : " + tongHang(1));
+            document.writeln("<br>Tong cot 1 la :" + tongCot(1));
+            document.writeln("<br>Gia tri lon nhat la : " + timMax());
+            document.writeln("<br>Gia tri nho nhat la : " + timMin());
+
+        }
+
+
+        window.onload = main();
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
