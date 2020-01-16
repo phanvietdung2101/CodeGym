@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+</head>
+<body>
+<canvas id="myCanvas" width="500" height="500" style="border: 3px solid black"></canvas>
+<script>
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+    function Game() {
+        let gameObj = this;
+        this.position = [250,250];
+        this.positionBlock = [];
+        this.positionReward = [];
+        this.speed = 5;
+
+        this.speedUp = function () {
+            if(this.speed == 15){
+                this.speed = 5
+            } else {
+                this.speed += 5
+            }
+        };
+
+        this.posCar = function () {
+            ctx.clearRect(0,0,500,500);
+
+
+
+            ctx.beginPath();
+            ctx.arc(this.position[0],this.position[1],5,0,Math.PI * 2);
+            ctx.fillStyle = "#00000";
+            ctx.fill();
+
+            this.buildBlock();
+
+        };
+
+        this.creatRandomPositionArray = function () {
+            let x = Math.floor(Math.random() * canvas.width);
+            let y = Math.floor(Math.random() * canvas.height);
+            return [x,y]
+        };
+
+        this.addBlock = function (times) {
+            for(let i=0;i < times;i++){
+                this.positionBlock[i] = new Array();
+                let temp = this.creatRandomPositionArray();
+                this.positionBlock[i][0] = temp[0];
+                this.positionBlock[i][1] = temp[1];
+            }
+        };
+
+        this.addReward = function (times) {
+            for(let i=0;i < times;i++){
+                this.positionReward[i] = new Array();
+                let temp = this.creatRandomPositionArray();
+                this.positionReward[i][0] = temp[0];
+                this.positionReward[i][1] = temp[1];
+            }
+        };
+
+        this.buildBlock = function () {
+          for(let i=0; i < this.positionBlock.length; i++){
+              ctx.beginPath();
+              ctx.arc(this.positionBlock[i][0],this.positionBlock[i][1],20,0,Math.PI * 2);
+              ctx.fillStyle = "#ff1900";
+              ctx.fill();
+          }
+        };
+
+        this.moveLeft = function (speed) {
+            this.position[0] -= speed;
+            this.posCar();
+        };
+        this.moveRight = function (speed) {
+            this.position[0] += speed;
+            this.posCar();
+        };
+        this.moveUp = function (speed) {
+            this.position[1] -= speed;
+            this.posCar();
+        };
+        this.moveDown = function (speed) {
+            this.position[1] += speed;
+            this.posCar();
+        };
+
+
+        this.moveSelection = function (event){
+            switch (event.keyCode) {
+                case 37:
+                    gameObj.moveLeft(gameObj.speed);
+                    break;
+                case 39:
+                    gameObj.moveRight(gameObj.speed);
+                    break;
+                case 38:
+                    gameObj.moveUp(gameObj.speed);
+                    break;
+                case 40:
+                    gameObj.moveDown(gameObj.speed);
+                    break;
+                case 17:
+                    gameObj.speedUp();
+            }
+            if(gameObj.distanceToLose() == true){
+                alert("you lose");
+                location.reload();
+            };
+        };
+
+        this.keyInput = function () {
+            window.addEventListener('keydown', this.moveSelection);
+        };
+
+        this.distanceToLose = function () {
+            let range = 0;
+
+            for(let i=0;i<gameObj.position.length;i++){
+                range = Math.sqrt(Math.pow((gameObj.position[0] - gameObj.positionBlock[i][0]),2) + Math.pow((gameObj.position[1] - gameObj.positionBlock[i][1]),2));
+                if(range < 25){
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+
+    }
+
+    let game = new Game();
+    game.posCar();
+    game.addBlock(2);
+    game.keyInput();
+
+
+
+</script>
+
+</body>
+</html>
