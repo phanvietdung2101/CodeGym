@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam Eva Story</title>
+</head>
+<body>
+<script>
+    let Apple = function () {
+        this.weight = 10;
+
+        this.decrease = function () {
+            if(this.weight > 0){
+                this.weight--;
+            } else {
+                console.log("This apple has nothing left")
+            }
+        };
+        this.isEmpty = function () {
+            if(this.weight > 0){
+                return false;
+            } else {
+                return true;
+            }
+        };
+        this.getWeight = function () {
+            return this.weight;
+        }
+    };
+
+    let Human = function (name, gender, weight) {
+        this.name = name;
+
+        if(gender == "Male" || gender == "male" || gender == "M" || gender == "m"){
+            this.gender = "male";
+        } else if (gender == "Female" || gender == "female" || gender == "F" || gender == "f") {
+            this.gender = "female";
+        } else {
+            this.gender = "something between"
+        };
+
+        this.weight = parseInt(weight);
+
+        this.increase = function () {
+            this.weight++;
+        };
+
+        this.talk = function () {
+            console.log(this.name + ": Hello !! " );
+        };
+
+        this.checkApple = function (apple) {
+          if(!apple.isEmpty()){
+              console.log(this.name + ": This apple can be eat");
+              return true;
+          } else {
+              console.log(this.name + ": This apple has nothing left");
+              return false;
+          }
+        };
+
+        this.eatApple = function (apple) {
+            if(this.checkApple(apple)) {
+                apple.decrease();
+                this.increase();
+                console.log(name + ": Yummy!!");
+            } else {
+                console.log(this.name + ": :((")
+            }
+        };
+
+        this.getName = function () {
+            return this.name;
+        };
+        this.getWeight = function () {
+            return this.weight;
+        };
+        this.getGender = function () {
+            return this.gender;
+        }
+
+    };
+
+
+    let apple = new Apple();
+
+    let adam = new Human('adam', 'male', 70);
+    let eva = new Human('eva', 'female', 50);
+
+    while(apple.getWeight() > 0){
+        adam.eatApple(apple);
+        eva.eatApple(apple);
+    }
+
+</script>
+</body>
+</html>

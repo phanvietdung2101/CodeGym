@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game đơn giản</title>
+</head>
+<body>
+<div id="game" ></div>
+<script>
+    function Hero(image, top, left, size, speed){
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+        this.speed = speed;
+
+        this.getHeroElement = function() {
+            return '<img width="' + this.size + '"' +
+                ' height="' + this.size + '"' +
+                ' src="' + this.image + '"' +
+                ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
+        };
+
+        this.moveRight = function(){
+            this.left += this.speed;
+            console.log('ok: ' + this.left);
+        };
+        this.moveLeft = function() {
+            this.left -= this.speed;
+            console.log('ok: ' + this.left);
+        };
+        this.moveUp = function() {
+            this.top -= this.speed;
+            console.log('ok: ' + this.top);
+        };
+        this.moveDown = function() {
+            this.top += this.speed;
+            console.log('ok: ' + this.top);
+        };
+
+    }
+
+    function PlayGame(object){
+        this.object = object;
+
+
+        this.move = function (evt) {
+            switch (evt.keyCode) {
+                case 37:
+                    object.moveLeft();
+                    break;
+                case 39:
+                    object.moveRight();
+                    break;
+                case 38:
+                    object.moveUp();
+                    break;
+                case 40:
+                    object.moveDown();
+                    break;
+            }
+        };
+    }
+
+    let ant = new Hero('1.jpg', 20, 30, 200,50);
+    let playGame = new PlayGame(ant);
+
+    window.addEventListener("keydown",playGame.move);
+    setInterval(function () {
+        document.getElementById("game").innerHTML = ant.getHeroElement();
+    },1);
+
+
+</script>
+</body>
+</html>
