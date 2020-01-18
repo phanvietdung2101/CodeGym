@@ -3,15 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+    </style>
 </head>
 <body>
 <div id="game"></div>
-<script>
-    let x = 0;
-    let y = 0;
-    let str = "<div id='cell-"+x+"-"+y+"' onclick='play("+x+","+y+")' class='cell' style='position: absolute; width: 40px; height:40px; left:"+ left +"px; top:" +top + "px; line-height: 40px;'></div>";
 
-    document.write(str);
+<script>
+    function Table(rows,cols) {
+        let obj = this;
+        this.array = [];
+
+        this.creatEmptyArray = function () {
+            for (let i = 0; i < rows; i++) {
+                let temp = [];
+                this.array.push(temp);
+                for (let j = 0; j < cols; j++) {
+                    temp[j] = 0;
+                }
+            }
+        };
+
+        this.showTableFromArray = function () {
+            let str = "<table border='1' style='width: 800px; height: 800px; border: 1px solid black; border-collapse: collapse'>";
+            for (let i = 0; i < rows; i++) {
+                str += "<tr>";
+                for (let j = 0; j < cols; j++) {
+                    str += "<td style='text-align : center; height: 40px; width: 40px; position: relative' id= 'cell-" + i + "-" + j + "' onclick = 'game.markOnBoard(" + i + "," + j + ")' value =''></td>";
+                }
+                ;
+                str += "</tr>";
+            }
+            str += "</table>";
+            document.getElementById("game").innerHTML = str;
+        };
+    }
+
+    function GamePlay(table) {
+        let game = this;
+        this.player = 1;
+
+
+        this.switchPlayer = function () {
+            if(this.player == 1){
+                this.player = 2;
+            } else {
+                this.player = 1;
+            }
+        };
+
+        this.markOnBoard = function (x,y) {
+            let elementID = "cell-" + x + "-" + y ;
+            console.log(elementID);
+            let element = document.getElementById(elementID);
+            console.log(element);
+
+            if(element.innerHTML == "X" || element.innerHTML == "O"){
+                alert("This cell was marked")
+            } else {
+                if(game.player == 1){
+                    element.innerHTML = "X";
+                    table.array[x][y] = 1;
+                    element.value = 1;
+                    game.check(x,y);
+                    game.switchPlayer();
+
+                } else {
+                    element.innerHTML = "O";
+                    table.array[x][y] = 2;
+                    element.value = 2;
+                    game.check(x,y);
+                    game.switchPlayer();
+                }
+            }
+        };
+
+        this.checkCount = function (count){
+            if(count >= 5){
+                alert("player "+ this.player + " win!");
+                location.reload();
+            }
+        };
+
+        this.check = function (x,y) {
+            let a = table.array;
+            let rows = a.length;
+            let cols = a[0].length;
+
+            // Check chiều ngang
+            let count = 1;
+            let i = 1;
+            while((y + i < cols) && a[x][y-i] === a[x][y]){
+                count++;
+                i++;
+            }
+            i = 1;
+            while((y-i >= 0) && a[x][y-i] === a[x][y]) {
+                count++;
+                i++;
+            }
+            game.checkCount(count);
+            // Check chiều dọc
+            count = 1;
+            i = 1;
+            while((x + i < rows) && a[x+i][y] === a[x][y]){
+                count++;
+                i++;
+            }
+            i = 1;
+            while((x - i >= 0) && a[x-i][y] === a[x][y]){
+                count++;
+                i++
+            }
+            game.checkCount(count);
+            // Check chéo cùng tăng hoặc cùng giảm tọa độ \
+            i = 1;
+            count = 1;
+            while((x + i < rows) && (y + i < cols) && a[x + i][y + i] === a[x][y]){
+                i++;
+                count++;
+            }
+            i = 1;
+            while ((x - i >= 0) && (y - i >= 0) && a[x - i][y - i] === a[x][y]){
+                count++;
+                i++;
+            }
+            game.checkCount(count);
+            // Check chéo cùng giảm và tăng hoặc tăng và giảm /
+            i = 1;
+            count = 1;
+            while((x + i < rows) && (y - i >= 0) && a[x+i][y-i] === a[x][y]){
+                i++;
+                count++;
+            }
+            i = 1;
+            while((x - i >= 0) && (y + i < cols) && a[x-i][y+i] === a[x][y]){
+                i++;
+                count++;
+            }
+            game.checkCount(count);
+        }
+
+    }
+
+
+    let table = new Table(20,20);
+    table.creatEmptyArray();
+    table.showTableFromArray();
+
+    let game = new GamePlay(table);
 
 </script>
 </body>

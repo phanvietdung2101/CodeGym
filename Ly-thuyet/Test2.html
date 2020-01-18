@@ -6,10 +6,30 @@
 </head>
 <body>
 <script>
-    for(var x = 2; x < 8; x++)
-    {
-        console.log(x);
+    let arr = [];
+    function staircase(n) {
+        let i = 0;
+        while(i<n){
+            arr[i] = [];
+            let j = 0;
+            while(j < n - 1 - i  ){
+                arr[i][j] = " ";
+                j++;
+            };
+            let k = n - 1;
+            while(k >= j){
+                arr[i][k] = "#";
+                k--;
+            };
+            i++;
+        }
+        for(let i = 0 ; i < n; i++){
+            console.log(arr[i].join(""));
+        }
+
     }
+
+    staircase(6);
 </script>
 </body>
 </html>

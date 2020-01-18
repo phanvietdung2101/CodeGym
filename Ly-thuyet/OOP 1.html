@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        const STEP = 5;
+        function Circle(x, y, radius, color) {
+            this.x = x;
+            this.y = y;
+            this.radius = radius;
+            this.color = color;
+
+            this.changeCoordination = function (newX,newY) {
+                this.x = newX;
+                this.y = newY;
+            };
+
+            this.getArea = function () {
+                return Math.PI * this.radius * this.radius
+            };
+            this.setColor = function (color) {
+                this.color = color;
+            };
+            this.clear = function (canvas) {
+                let ctx = canvas.getContext("2d");
+                ctx.clearRect(this.x - this.radius-STEP,this.y - this.radius-STEP,2 * this.radius+STEP, 2* this.radius+STEP);
+            };
+            this.toString = function () {
+                let str = "";
+                str += "<br>Ban kinh la " + this.radius ;
+                str += "<br>Mau sac la " + this.color;
+
+                return str;
+            };
+            this.draw = function (canvas) {
+                let ctx = canvas.getContext("2d");
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.radius,0,2 * Math.PI);
+                ctx.stroke();
+            }
+        }
+        function veHinhTron(radius,circle) {
+            let canvas = document.getElementById("myCanvas");
+            circle.clear(canvas);
+            circle.draw(canvas);
+            circle.changeCoordination(circle.x+4, circle.y+4);
+        }
+        function runningCircle() {
+            let canvas = document.getElementById("myCanvas");
+            let circle = new Circle(100,100,10,"red");
+            setInterval(function(){veHinhTron(canvas,circle)},100);
+        }
+
+
+    </script>
+</head>
+<body>
+<canvas id="myCanvas" width="400" height="300" style="border: 1px solid black"></canvas>
+<button onclick="runningCircle()">Ve hinh tron</button>
+</body>
+<script>
+    // alert("Dien tich hinh tron co ban kinh bang 10 la: " + circle.getArea());
+
+</script>
+</html>
