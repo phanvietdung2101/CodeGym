@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        let a = new Array(1000);
+        let count = 0;
+
+        function init(n) {
+            for(let i = 0; i < n; i++){
+                a[i] = Math.round(Math.random() * 1000);
+            }
+        }
+
+        function show(n) {
+            for(let i = 0; i < n; i++){
+                console.log(i + " : " + a[i]);
+            }
+        }
+
+        function sequentialSearch(x,n)
+        {
+            let indArr = new Array();
+            for(let i = 0; i < n; i++){
+                if(a[i] == x){
+                    indArr.push(i);
+                }
+            }
+            return indArr;
+        }
+
+        function binarySearch(x,i,j) {
+            if(i > j){
+                return -1;
+            }
+            let m = Math.round((i+j)/2);
+            if(a[m] == x){
+                return m;
+            }
+            if(a[m] > x){
+                j = m;
+            } else {
+                i = m;
+            }
+
+            return  binarySearch(x, i, j);  // Gọi đệ quy
+        }
+
+        function main() {
+            count = prompt("Nhap so phan tu cua mang");
+            count = parseInt(count);
+            init(count);
+            show(count);
+
+            // a.sort(function (a,b) {
+            //     return a - b;
+            // });
+            // // TIm kiem phan tu
+            // let x = prompt("nhap gia tri can tim:");
+            // x = parseInt(x);
+            // let pos = sequentialSearch(x,count);
+            // if(pos.length != 0){
+            //     let str = "tim thay tai vi tri: ";
+            //     for(let i in pos)
+            //         str += pos[i] + ", ";
+            //     alert(str);
+            // } else {
+            //     alert("khong tim thay!")
+            // }
+            // //Tim kiem nhi phan
+            //
+            // let bPos = binarySearch(x,0,count - 1);
+            // if(bPos == -1){
+            //     alert("khong tim thay");
+            // } else {
+            //     alert("tim thay tai vi tri " + bPos)
+            // }
+
+            selectionSort();
+            console.log("sau khi sap xep");
+            show(count);
+        }
+
+        //Sap xep
+
+        //Sap xep lua chon selection
+        function selectionSort() {
+            let i, j, tmp;
+            let min, pMin;
+
+            for(i=0;i < count - 1;i++)
+            {
+                min = a[i];
+                pMin = i;
+                for(j = i + 1;j < count; j++){
+                    if(a[j] < min)
+                    {
+                        min = a[j];
+                        pMin = j;
+                    }
+                }
+                if(a[i] != min)
+                {
+                    tmp = a[i];
+                    a[i] = a[pMin];
+                    a[pMin] = tmp;
+                }
+            }
+        };
+
+        main();
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
