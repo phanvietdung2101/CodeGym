@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        let a = new Array(1000);
+        let a = new Array();
         let count = 0;
 
         function init(n) {
             for(let i = 0; i < n; i++){
-                a[i] = Math.round(Math.random() * 1000);
+                a.push(Math.round(Math.random() * 1000));
             }
         }
 
@@ -77,7 +77,7 @@
             //     alert("tim thay tai vi tri " + bPos)
             // }
 
-            selectionSort();
+            quick(a,0,9);
             console.log("sau khi sap xep");
             show(count);
         }
@@ -109,7 +109,146 @@
             }
         };
 
+
+        //Sap xep chen
+
+        function insertionSort() {
+            let i, j, min;
+
+            for(i=0;i<a.length - 1;i++)
+            {
+                min = a[a.length - 1];
+                for(j = a.length - 1; j>i; j--)
+                {
+                    if(a[j-1] < min)
+                    {
+                        a[j] = min;
+                        min = a[j-1];
+                    }
+                    else a[j] = a[j-1]
+                }
+                a[i]= min;
+            }
+        }
+
+        function bubbleSort(){
+            let i,j,tmp;
+            for(i = a.length - 1; i>0;i--)
+            {
+                for(j=0;j<i;j++)
+                {
+                    if(a[j] > a[j+1]){
+                        tmp = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = tmp;
+                    }
+                }
+            }
+        }
+
+        // function partition(l,r) {
+        //     let k,i,j,pos,tmp;
+        //     pos = Math.round((l + r) / 2);
+        //     let posVal = a[pos];
+        //     i = l;
+        //     j = r;
+        //
+        //     while(i<j){
+        //         while(a[i] < posVal){
+        //             i++;
+        //         }
+        //         while(a[j] >= posVal){
+        //             j--;
+        //         }
+        //         if(i < j)
+        //         {
+        //             tmp = a[i];
+        //             a[i] = a[j];
+        //             a[j] = tmp;
+        //         }
+        //     }
+        //     // Đưa giá trị chốt về bên trái nhất của dãy con bên phải
+        //     let min = a[i];
+        //     let pMin = i;
+        //     for(k = i + 1; k < r; k++){
+        //         if(a[k] < min)
+        //         {
+        //             min = a[k];
+        //             pMin = k;
+        //         }
+        //     }
+        //     if(pMin != i){
+        //         tmp = a[i];
+        //         a[i] = a[pMin];
+        //         a[pMin] = tmp;
+        //     }
+        //     return i;
+        //
+        // }
+        // //sap xep nhnah
+        // function quickSort(l,r) {
+        //     if(l >= r)
+        //         return;
+        //     let m = partition(l,r);
+        //     quickSort(l,m-1);
+        //     quickSort(m+1,r);
+        // }
+
+        function insert() {
+            for(let i=1;i<a.length;i++){
+                let tmp = a[i];
+                let j = i - 1;
+                while(j >= 0 && a[j] > tmp){
+                    a[j + 1] = a[j];
+                    j--;
+                }
+                a[j+1] = tmp;
+            }
+        }
+
+        function bubble() {
+            let tmp;
+            for(let i=0;i<a.length - 1;i++){
+                for(let j=0;j<  a.length-i-1;j++){
+                    if(a[j] > a[j+1]){
+                        tmp = a[j];
+                        a[j] = a[j+1];
+                        a[j+1] = tmp;
+                    }
+                }
+            }
+        }
+
+
+        function partition(arr,l,r) {
+            let pivot = arr[r];
+            let i = l - 1;
+
+            for(let j = l; j < r ; j++){
+                if(arr[j] <= pivot){
+                    i++;
+                    let tmp = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = tmp;
+                }
+            }
+            arr[r] = arr[i+1];
+            arr[i+1] = pivot;
+            return (i+1);
+        };
+
+        function quick(arr,l,r) {
+            if (l >= r) {
+                return;
+            }
+            let pi = partition(arr,l, r);
+            quick(arr,l, pi - 1);
+            quick(arr,pi + 1, r);
+        }
+
         main();
+
+
 
 
     </script>

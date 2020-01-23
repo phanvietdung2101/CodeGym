@@ -42,17 +42,21 @@ let ProductManagement = function () {
     this.listProduct = [];
 
     this.addProduct = function () {
-        let id = prompt("Enter id:");
-        id = parseInt(id);
-        let name = prompt("Enter name:");
-        let price = prompt("Enter price:");
+        let id = document.getElementById("product-id").value;
+        document.getElementById("product-id").value = "";
+        let name = document.getElementById("product-name").value;
+        document.getElementById("product-name").value = "";
+        let price = document.getElementById("product-price").value;
+        document.getElementById("product-price").value = "";
         price = parseFloat(price);
-        let description = prompt("Enter description:");
+        let description = document.getElementById("product-description").value;
+        document.getElementById("product-description").value = "";
 
-        name = new Product(id,name,price,description);
-        this.listProduct.push(name);
+        id = new Product(id,name,price,description);
+        this.listProduct.push(id);
 
         this.showProduct();
+
     };
 
     this.showProduct = function ()  {
@@ -79,7 +83,6 @@ let ProductManagement = function () {
 
     this.editProduct = function (index) {
         let id = prompt("Enter id:");
-        id = parseInt(id);
         let name = prompt("Enter name:");
         let price = prompt("Enter price:");
         price = parseFloat(price);

@@ -7,16 +7,42 @@
     <link rel="stylesheet" href="c.css">
 </head>
 <body>
-<button onclick="productManagement.addProduct()" >Add</button>
+<div id="add-box">
+    <table>
+        <tr>
+            <td>Tên mã sản phẩm:</td>
+            <td><input type="text" id="product-id"></td>
+        </tr>
+        <tr>
+            <td>Tên sản phẩm:</td>
+            <td><input type="text" id="product-name"><br></td>
+        </tr>
+        <tr>
+            <td>Giá sản phẩm:</td>
+            <td><input type="number" id="product-price"> VNĐ</td>
+        </tr>
+        <tr>
+            <td>Bản mô tả sản phẩm</td>
+            <td><textarea id="product-description"></textarea></td>
+        </tr>
+        <tr>
+            <td><button onclick="productManagement.addProduct()" >Add</button></td>
+        </tr>
+    </table>
+</div>
 <h3>Display all product</h3>
 <table id="table" border="1";>
-
 </table>
 <script>
     let productManagement = new ProductManagement();
+    let C01 = new Product("Bàn chải","C01", 30000,"");
+    let C02 = new Product("Kem đánh răng","C02", 25000,"");
+    let C03 = new Product("Xà phòng","C03", 40000,"");
+    productManagement.listProduct.push(C01);
+    productManagement.listProduct.push(C02);
+    productManagement.listProduct.push(C03);
+
     productManagement.showProduct();
-
-
 </script>
 </body>
 </html>
