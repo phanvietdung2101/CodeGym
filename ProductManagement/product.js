@@ -60,7 +60,13 @@ let ProductManagement = function () {
     };
 
     this.showProduct = function ()  {
-        let html = "";
+        let html = "<tr>";
+        html += "<th>Tên mã sản phẩm</th>";
+        html += "<th>Tên sản phẩm</th>";
+        html += "<th>Giá sản phẩm</th>";
+        html += "<th>Mô tả sản phẩm</th>";
+        html += "<th colspan='2'>Xóa/Sửa sản phẩm</th>";
+        html += "</tr>";
 
         for(let i=0; i < productManagement.listProduct.length; i++){
             html += "<tr>";
