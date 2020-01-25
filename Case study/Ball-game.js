@@ -8,7 +8,7 @@ const DEFAULT_BALL_POS_X = 30;
 const DEFAULT_BALL_POS_Y = 20;
 const DEFAULT_BAR_POS_X = 500;
 const DEFAULT_BAR_POS_Y = 500;
-const DEFAULT_BAR_WIDTH = 50;
+const DEFAULT_BAR_WIDTH = 75;
 const DEFAULT_BAR_HEIGHT = 10;
 
 
@@ -30,6 +30,11 @@ let Ball = function(target) {
     this.speed = Math.sqrt(this.hSpeed * this.hSpeed + this.vSpeed * this.vSpeed);
 
     this.target = target;
+    this.point = 0;
+
+    this.showPoint  = function () {
+        document.getElementById("point").innerHTML = "Point: "+ this.point;
+    };
 
     this.showBallOnCanvas = function () {
         ctx.beginPath();
@@ -65,7 +70,7 @@ let Ball = function(target) {
             return "Upper"
         } else if(this.y >= canvas.height){
             return "Down"
-        } else if(this.y >= this.target.y && this.x <= target.x + target.width / 2 && this.x >= target.x - target.width / 2){
+        } else if(this.y >= this.target.y && this.x <= target.x + target.width && this.x >= target.x ){
             return "BounceTarget"
         }
     };
@@ -77,9 +82,23 @@ let Ball = function(target) {
             this.vSpeed = -temp;
         } else if(this.checkBouncingPos() == "Left" || this.checkBouncingPos() == "Right"){
             this.hSpeed = -this.hSpeed;
-        } else if(this.checkBouncingPos() == "Down" || this.checkBouncingPos() == "Upper" || this.checkBouncingPos() == "BounceTarget"){
+        } else if(this.checkBouncingPos() == "Upper"){
             this.vSpeed = -this.vSpeed;
+        } else if(this.checkBouncingPos() == "Down"){
+            this.gameOver();
+        } else if( this.checkBouncingPos() == "BounceTarget") {
+            this.gotPoint();
+            this.vSpeed = - this.vSpeed;
         }
+    };
+
+    this.gotPoint = function () {
+        this.point++;
+        this.showPoint();
+    };
+
+    this.gameOver = function () {
+        endgame();
     }
 
 };
@@ -138,12 +157,19 @@ function main() {
     window.addEventListener("keydown",bar.moveOnClick);
 
 
-    setInterval(function(){
+    let loop = setInterval(function(){
         clearAllCanvas();
         ball.movingBall();
         ball.showBallOnCanvas();
         bar.showBar();
-    },10)
+    },10);
+
+    function endgame() {
+        clearInterval(loop);
+        alert("GameOver");
+        window.location.reload();
+    }
+
 
 };
 

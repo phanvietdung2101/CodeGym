@@ -74,8 +74,8 @@ let ProductManagement = function () {
             html += "<td>" + productManagement.listProduct[i].name + "</td>";
             html += "<td>" + productManagement.listProduct[i].price + "</td>";
             html += "<td>" + productManagement.listProduct[i].description + "</td>";
-            html += "<td>" + "<button onclick='productManagement.deleteProduct(" + i + ")'>Delete</button>" + "</td>";
-            html += "<td>" + "<button onclick='productManagement.editProduct("+ i + ")'>Edit</button>" + "</td>";
+            html += "<td style='text-align: center'>" + "<button onclick='productManagement.deleteProduct(" + i + ")'>Delete</button>" + "</td>";
+            html += "<td style='text-align: center'>" + "<button onclick='productManagement.editProduct("+ i + ")'>Edit</button>" + "</td>";
             html += "</tr>"
         }
 
